@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="关键词一，关键词二">
+    <meta name="Description" content="网站描述内容">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        Main {
+            width: 1000px;
+            height: 640px;
+            background: #cc99cc;
+            margin: 30px auto 0px;
+        }
+
+        Main ul li {
+            width: 288px;
+            height: 180px;
+            border: 4px solid #fff;
+            list-style-type: none;
+            float: left;
+            margin: 10px 17px;
+            box-shadow: 5px 5px 10px #000;
+        }
+
+        .gray {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+
+        .showImg {
+            width: 650px;
+            height: 406px;
+            background: #e5e5e5;
+            position: absolute;
+            top: 100px;
+            left: 400px;
+            border: 10px solid #fff;
+            display: none;
+        }
+
+        .showImg img.but_l {
+            position: absolute;
+            top: 170px;
+            left: -70px;
+        }
+
+        .showImg img.but_r {
+            position: absolute;
+            top: 170px;
+            right: -70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Main">
+        <ul>
+            <li><img src="./icon/XLS.png" bigsrc="./icon/XLS.png"  /></li>
+            <li><img src="./icon/pdf.png" bigsrc="./icon/pdf.png"  /></li>
+            <li><img src="./icon/audio.png" bigsrc="./icon/audio.png" /></li>
+            <li><img src="./icon/ppt.png" bigsrc="./icon/ppt.png"  /></li>
+        </ul>
+    </div>
+    <div class="gray"></div>
+    <div class="showImg">
+        <img src="./icon/video.png" class="show_bimg" />
+        <img src="./icon/word.png" class="but_l" />
+        <img src="./icon/zip.png" class="but_r" />
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script type="text/javascript">
+        var _index = 0;
+        var bImg = null;
+        $("#Main ul li").click(function () {
+            _index = $(this).index(); //获取序列号
+            //alert(_index);
+            $(".gray").show(); //显示
+            $(".showImg").show(); //显示
+            bImg = $(this).find("img").attr("bigsrc");
+            //alert(bImg);
+            $(".showImg img.show_bimg").attr("src", bImg);
+        });
+        $(".gray").click(function () {
+            $(".gray").hide(); //隐藏
+            $(".showImg").hide();
+        });
+        //点击右边切换按扭
+        $(".showImg img.but_r").click(function () {
+            _index++; // _index+1;
+            if (_index > 8) {
+                _index = 8;
+                alert("右边到头了");
+            }
+            bImg = $("#Main ul li").eq(_index).find("img").attr("bigsrc");
+            $(".showImg img.show_bimg").attr("src", bImg);
+        });
+        //点击左边切换按扭
+        $(".showImg img.but_l").click(function () {
+            _index--; //_index-1;
+            if (_index < 0) {
+                _index = 0;
+                alert("左边到头了");
+            }
+            bImg = $("#Main ul li").eq(_index).find("img").attr("bigsrc");
+            $(".showImg img.show_bimg").attr("src", bImg);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,12 +1,142 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>JS图片弹窗</title>
+    <style type="text/css">
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .popup {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #small {
+            width: 300px;
+            height: 200px;
+            border: 10px solid rgba(35, 36, 35, 0.6);
+            z-index: 1;
+        }
+
+        #small img {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            /* transition: 0.3s; */
+        }
+
+        #small img:hover {
+            opacity: 0.5;
+        }
+
+        #magnify {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #ebe7e7;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: rgb(156, 153, 153);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .content {
+            margin: auto;
+            display: block;
+            max-width: 800px;
+            width: 80%;
+        }
+
+        .describe {
+            margin: auto;
+            display: block;
+            text-align: center;
+            color: #ccc;
+            padding: 20px 0;
+        }
+
+        .content,
+        .describe {
+            -webkit-animation-name: Eject;
+            -webkit-animation-duration: 5s;
+            animation-name: Eject;
+            animation-duration: 5s;
+        }
+
+        @-webkit-keyframes Eject {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes Eject {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+    </style>
 </head>
+
 <body>
-    hello world!!!
+    <div class="popup">
+        <div id="small"> <img id="img" src="./1.jpg" alt="填写图片信息描述"> </div>
+        <div id="magnify"> <span class="close">&times;</span> <img class="content"> <span class="describe"></span>
+        </div>
+    </div>
 </body>
+<script>
+    var magnify = document.getElementById('magnify');
+    var small = document.getElementById('small');
+    var img = small.children[0];
+    var close = magnify.children[0];
+    var magnifyImg = magnify.children[1];
+    var describe = magnify.children[2];
+    img.onclick = function () {
+        magnify.style.display = "block";
+        magnifyImg.src = this.src;
+        describe.innerHTML = this.alt;
+    }
+    close.onclick = function () {
+        magnify.style.display = "none";
+    }
+</script>
+
 </html>
