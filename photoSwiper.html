@@ -12,14 +12,14 @@
             padding: 0px;
         }
 
-        Main {
+        #Main {
             width: 1000px;
             height: 640px;
-            background: #cc99cc;
+            background: rgb(172, 170, 170);
             margin: 30px auto 0px;
         }
 
-        Main ul li {
+        #Main ul li {
             width: 288px;
             height: 180px;
             border: 4px solid #fff;
@@ -32,11 +32,17 @@
         .gray {
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.9);
             position: fixed;
             left: 0px;
             top: 0px;
             display: none;
+        }
+
+        .imgWrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .showImg {
@@ -44,41 +50,52 @@
             height: 406px;
             background: #e5e5e5;
             position: absolute;
-            top: 100px;
-            left: 400px;
             border: 10px solid #fff;
             display: none;
+            top: 0;
+            bottom: 0;
+            margin: auto;
         }
 
         .showImg img.but_l {
             position: absolute;
             top: 170px;
             left: -70px;
+            max-width: 50px;
+            max-height: 50px;
         }
 
         .showImg img.but_r {
             position: absolute;
             top: 170px;
             right: -70px;
+            max-width: 50px;
+            max-height: 50px;
         }
     </style>
 </head>
 
 <body>
     <div id="Main">
-        <ul>
-            <li><img src="./img/1.jpg" bigsrc="./img/1.jpg" /></li>
-            <li><img src="./img/2.jpg" bigsrc="./img/2.jpg"  /></li>
-            <li><img src="./img/3.jpg" bigsrc="./img/3.jpg" /></li>
-            <li><img src="./img/4.jpg" bigsrc="./img/4.jpg"  /></li>
-        </ul>
+        <div class="photo">
+            <ul>
+                <li><img src="./img/1.jpg" bigsrc="./img/1.jpg" /></li>
+                <li><img src="./img/2.jpg" bigsrc="./img/2.jpg" /></li>
+                <li><img src="./img/3.jpg" bigsrc="./img/3.jpg" /></li>
+                <li><img src="./img/4.jpg" bigsrc="./img/4.jpg" /></li>
+            </ul>
+        </div>
+
     </div>
     <div class="gray"></div>
-    <div class="showImg">
-        <img src="./icon/1.png" class="show_bimg" />
-        <img src="./icon/left.png" class="but_l" />
-        <img src="./icon/right.png" class="but_r" />
+    <div class="imgWrap">
+        <div class="showImg">
+            <img src="./img/1.jpg" class="show_bimg" />
+            <img src="./icon/left.png" class="but_l" />
+            <img src="./icon/right.png" class="but_r" />
+        </div>
     </div>
+
     <script src="./jquery.min.js"></script>
     <script type="text/javascript">
         var _index = 0;
