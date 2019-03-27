@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+<style>
+    .parent {
+        border: 1px solid;
+        margin: 0 auto;
+
+        background: gray;
+    }
+
+    .son:nth-child(1) {
+        background: black;
+        width: 100px;
+        height: 50px;
+        color: white;
+        line-height: 50px;
+        text-align: center;
+    }
+
+    .son:nth-child(2) {
+        color: white;
+
+    }
+
+    .clearfix::after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+
+    .nav {
+        line-height: 30px;
+        margin: 10px 0;
+    }
+
+    .item {
+        margin-left: 10px;
+
+    }
+
+    .banner {
+        height: 100px;
+        width: 800px;
+        background: rgb(193, 193, 193);
+        margin: 5px auto;
+    }
+
+    .pictures {
+        background: rgb(193, 193, 193);
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .pictureWrap {
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+
+    /* 第一种方法消除外边距 */
+
+    .picture {
+        background: rgb(167, 192, 220);
+        height: 194px;
+        width: 194px;
+        margin: 4px;
+        float: left;
+    }
+
+    .picture:nth-child(4n+1) {
+        margin-left: 0;
+    }
+
+    .picture:nth-child(4n) {
+        margin-right: 0
+    }
+
+    /* 第二种方法消除外边距 */
+    .art {
+        width: 800px;
+        background: #ddd;
+        margin: 0 auto;
+    }
+
+    .art>.main {
+        width: calc(66% - 20px);
+        float: left;
+        margin-right: 20px;
+    }
+    /* 第一种方法增加右外边距 */
+
+    .art>.slide {
+        height: 100px;
+        border: 1px solid;
+        float: left;
+        width: 33.333333%;
+    }
+
+    .main-child {
+        height: 100px;
+        border: 1px solid;
+    }
+    /* 第二种方法增加右外边距，在子元素上加 */
+</style>
+
+<body>
+    <div class="parent clearfix">
+        <div class="son" style="float:left">
+            logo
+        </div>
+        <div class="son" style="float:right">
+            <div class="nav clearfix">
+                <div class="item" style="float:left">导航1</div>
+                <div class="item" style="float:left">导航2</div>
+                <div class="item" style="float:left">导航3</div>
+                <div class="item" style="float:left">导航4</div>
+                <div class="item" style="float:left">导航5</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="banner"></div>
+    <div class="pictures ">
+        <div class="pictureWrap clearfix">
+            <div class="picture"></div>
+            <div class="picture"></div>
+            <div class="picture"></div>
+            <div class="picture"></div>
+            <div class="picture"></div>
+            <div class="picture"></div>
+            <div class="picture"></div>
+            <div class="picture"></div>
+        </div>
+    </div>
+    <div class="art clearfix">
+        <div class="main">
+            <div class="main-child">1</div>
+        </div>
+        <div class="slide">2</div>
+    </div>
+</body>
+
+</html>
