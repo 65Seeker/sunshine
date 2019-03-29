@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>块级格式化上下文</title>
+</head>
+<style>
+    body{
+        box-sizing: border-box;
+    }
+    .grandf {
+        border: 5px solid red;
+        display: flow-root;
+    }
+
+    .father {
+        height: 100px;
+        width: 600px;
+        background: blue;
+        margin: 5px;
+        color: white;
+    }
+
+    .man {
+        border: 4px solid;
+        height: 100px;
+        width: 100px;
+        margin-top: 10px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .gf {
+        border: 10px solid gray;
+        display: flow-root;
+        margin-top: 10px;
+
+    }
+
+    .mom {
+        height: 100px;
+        width: 600px;
+        background: green;
+        float: left;
+        margin-top: 50px;
+    }
+
+    .son {
+        height: 100px;
+        width: 600px;
+        background: pink;
+        margin-top: 100px
+    }
+</style>
+
+<body>
+    <span><b> 功能一：给父元素设置BFC就是为了让浮动的子元素被父元素包住。
+        （不等于清除浮动！！文档流上浮动的还是浮动，只是父元素计算高度会把浮动元素高度计算在内）</b></span>
+    <br><br>
+    <span>最新的设置BFC的属性-<b>display:flow-root; 没有副作用。</span>
+    <br>
+    <div class="grandf">
+
+        </b>
+        <div class="father"></div>
+        <div class="father">这里体现了在BFC内的垂直相邻的两个块级元素的垂直margin会<b>合并</b></div>
+    </div>
+    <div class="man"><span><b>功能二：BFC会把浮动的兄弟元素划清界限，不会重叠。</b> </span></div>
+    <div class="gf">
+        <div class="mom">
+            <div class="son">
+                BFC只会包含自身的子元素，而不会包含子元素的后代元素
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
