@@ -28,7 +28,10 @@
             margin: 10px 17px;
             box-shadow: 5px 5px 10px #000;
         }
-
+        
+        img{
+            max-width: 300px;
+        }
         .gray {
             width: 100%;
             height: 100%;
@@ -78,11 +81,11 @@
 <body>
     <div id="Main">
         <div class="photo">
-            <ul>
-                <li><img src="./img/1.jpg" bigsrc="./img/1.jpg" /></li>
-                <li><img src="./img/2.jpg" bigsrc="./img/2.jpg" /></li>
-                <li><img src="./img/3.jpg" bigsrc="./img/3.jpg" /></li>
-                <li><img src="./img/4.jpg" bigsrc="./img/4.jpg" /></li>
+            <ul class="imgA">
+                <li class="img"><img src="./img/1.jpg" bigsrc="./img/1.jpg" /></li>
+                <li class="img"><img src="./img/2.jpg" bigsrc="./img/2.jpg" /></li>
+                <li class="img"><img src="./img/3.jpg" bigsrc="./img/3.jpg" /></li>
+                <li class="img"><img src="./img/4.jpg" bigsrc="./img/4.jpg" /></li>
             </ul>
         </div>
 
@@ -108,17 +111,23 @@
             bImg = $(this).find("img").attr("bigsrc");
             //alert(bImg);
             $(".showImg img.show_bimg").attr("src", bImg);
+            
         });
         $(".gray").click(function () {
             $(".gray").hide(); //隐藏
             $(".showImg").hide();
         });
+        let imgArr=$(".imgA").children(".img");
+        console.log(imgArr)
+        let imgLength=imgArr.length
+        console.log(imgLength)
         //点击右边切换按扭
         $(".showImg img.but_r").click(function () {
             _index++; // _index+1;
-            if (_index > 8) {
-                _index = 8;
-                alert("右边到头了");
+            console.log(imgLength)
+            if (_index > imgLength) {
+                _index = imgLength-1;
+                alert("已經是最後一張了");
             }
             bImg = $("#Main ul li").eq(_index).find("img").attr("bigsrc");
             $(".showImg img.show_bimg").attr("src", bImg);
@@ -128,7 +137,7 @@
             _index--; //_index-1;
             if (_index < 0) {
                 _index = 0;
-                alert("左边到头了");
+                alert("已經是第一張了");
             }
             bImg = $("#Main ul li").eq(_index).find("img").attr("bigsrc");
             $(".showImg img.show_bimg").attr("src", bImg);
