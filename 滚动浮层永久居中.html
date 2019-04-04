@@ -104,11 +104,6 @@
     </div>
 </div>
 
-
-
-
-
-
 <script>
     //动态给遮罩层高度
     total = document.documentElement.clientHeight;
@@ -132,10 +127,19 @@
         var objL=Number(sl)+(Number(cw)-Number(objW))/2; //思路  左移浮动宽度+（（屏幕宽度-对象宽度））/2
         $(".hidden_pro_au").css("left",objL);
         $(".hidden_pro_au").slideDown("20000");//这里显示方式多种效果
+
+        $("html").css({
+            "overflow-y": "hidden"
+        });   //隐藏滚动条
+        $(".showImg").css({"height":window.screen.availHeight});
+        $(".gray").css({"height":window.screen.availHeight}); 
     }
     function close_hidden_pro_au(){
         $(".lbOverlay").hide();
         $(".hidden_pro_au").hide();
+        $("html").css({
+            "overflow-y": "auto"
+        });  //显示滚动条
     }
 </script>
 </body>
