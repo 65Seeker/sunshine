@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>audio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.5.2/plyr.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.5.2/plyr.css" /> -->
     <style>
     .plyr--audio .plyr__controls{
         background: none;
@@ -15,14 +15,14 @@
 </head>
 
 <body>
-    <div class="audio" style="max-width:300px;border:2px solid;border-radius:25px;">
-            <audio id="player" controls>
-                    <source src="./Secrets.mp3" type="audio/mp3" />
+    <div class="audio11" style="max-width:300px;border:2px solid;border-radius:25px;">
+            <audio id="player11" controls>
+                    <source src="./111.wav" type="audio/mp3" />
                 </audio>
     </div>
 
-    <div class="video">
-            <video poster="/path/to/poster.jpg" id="player" playsinline controls>
+    <div class="video11">
+            <video poster="/path/to/poster.jpg" id="player11" playsinline controls>
                 <source src="./鸟叔.mp4" type="video/mp4" />
             
                 <!-- Captions are optional -->
@@ -30,8 +30,16 @@
             </video>
     </div>
 
+
+    <div class="audio">
+        <a href="http://webfilesvr200.91cb.net/Public/ueditorimg/202651/20190410/WP-202651-1554870582-7902764-1689299723-6512003680.wav">
+            wav</a>
+        <a href="http://webfilesvr200.91cb.net/Public/ueditorimg/202651/20190410/WP-202651-1554877152-13228016-499167771-7597405610.mp3">
+            mp3</a>
+    </div>
+
 </body>
-<script src="https://cdn.plyr.io/3.5.2/plyr.js"></script>
+<!-- <script src="https://cdn.plyr.io/3.5.2/plyr.js"></script> -->
 <script>
     const player = new Plyr('#player');
 </script>
