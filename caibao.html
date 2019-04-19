@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>caibao</title>
+    <style>
+        * {
+            
+            margin: 0;
+            padding: 0;
+        }
+        ul ol{
+            list-style: none;
+        }
+        li {
+            display: inline;
+            line-height: 40px;
+            float: left
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background:rgb(0, 187, 206);
+            height: 45px;
+            color: white;
+        }
+        input{
+            border: 1px solid #b8b8b8;
+            width: 300px;
+            height: 20px;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+        input:focus{
+            outline: none;
+            border-color: #4b94fc;
+        }
+        .cancel{
+            margin-right: 10px; 
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="searchBar">
+            <input type="text">
+        </div>
+        <div class="cancel">取消</div>
+    </header>
+    <nav>
+        <div class="subject">
+            <ul>
+                <li>语文</li>
+                <li>数学</li>
+                <li>英语</li>
+            </ul>
+        </div>
+        <div class="grade">
+            <ul>
+                <li>一年级</li>
+                <li>二年级</li>
+                <li>三年级</li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <ul>
+            <li>
+                <img src="./img/1.jpg" alt="">
+                <div class="detail">
+                    <div class="title">计算机科学</div>
+                    <span class="teacher">张老师</span>
+                    <div class="number">1000人看</div>
+                </div>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </main>
+</body>
+
+</html>
