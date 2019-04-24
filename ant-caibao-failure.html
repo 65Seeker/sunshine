@@ -12,7 +12,6 @@
     </script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <style>
-        
         * {
             margin: 0;
             padding: 0;
@@ -58,6 +57,7 @@
             width: 7rem;
             height: 0.8rem;
             -webkit-appearance: none;
+            font-size: 16px;
         }
 
         input:focus {
@@ -144,44 +144,14 @@
             height: 100%;
         }
 
-        .videoWrap:first-child {
-            display: flex;
-            justify-content: flex-start;
-            padding: 0.4rem 0.4rem 0.4rem 0.4rem;
-        }
-
-        .videoWrap {
-            display: flex;
-            justify-content: flex-start;
-            padding: 0 0.4rem 0.4rem 0.4rem;
-        }
-
-        .videoImg {
-            width: 4.26rem;
-            height: 2.66rem;
-            border-radius: 10px;
-        }
-
-        .videoInfo {
-            padding-left: 10px;
-        }
-
-        .title {
-            color: #333333;
-            font-size: 16px;
-            -webkit-line-clamp: 2;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-height: 5rem;
-        }
-
-        .other {
+        .failure {
             color: #A3B1CC;
-            font-size: 14px;
-            line-height: 25px;
-            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 5rem;
+            height: 5rem;
+            width: 10rem;
+            text-align:center;
         }
     </style>
 </head>
@@ -193,7 +163,7 @@
 
     <div class="content">
         <div class="searchBar">
-            <input type="text" class="search" placeholder="一元一次方程">
+            <input type="text" class="search" placeholder="请输入课程名称">
             <div class="searchButton">搜索</div>
         </div>
         <div class="filterHeader">
@@ -225,134 +195,9 @@
                 <li class="subjectFilter">英语</li>
             </ul>
         </section>
-        <div class="page">
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx4.sinaimg.cn/mw690/005Pbvbogy1g2819wmggqj30dw099myy.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频教学视频教学视频教学视频教学视频教学视频教学视频</div>
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
-            <div class="videoWrap">
-                <div class="videoImgWrap">
-                    <img class="videoImg" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2819qoexjj30dw09940g.jpg" alt="">
-                </div>
-                <div class="videoInfo">
-                    <div class="title">教学视频教学视频教学视频</div>
-
-                    <div class="other">
-                        <div class="author">王老师</div>
-                        <span class="grade">一年级</span>
-                        <span class="subject">语文</span>
-                    </div>
-                </div>
-            </div>
+        <div class="failure">
+            未查询到相关结果
         </div>
-
     </div>
 
 
@@ -408,18 +253,6 @@
             $('.gradeSelection').removeClass('active')
             $(".gradeSort").removeClass("open");
             $('.subjectSelection').removeClass('active')
-        }
-    })
-    var x= true;
-    console.log(x);
-    $(".img-zan").click(function () {
-        console.log(x);
-        if (x){
-            $(".img-zan").attr("src","/static/img/Icon_Fabulous_highlight@2x.png")
-            var x=false;
-        }else{
-            $(".img-zan").attr("src","/static/img/Icon_Fabulou_normal@2x.png")
-            var x=true;
         }
     })
 </script>

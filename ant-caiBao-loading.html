@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>ant-caiBao</title>
+    <script>
+        let pageWidth = window.innerWidth
+        document.write('<style>html{font-size:' + pageWidth / 10 + 'px;}</style>')
+    </script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px;
+        }
+
+        .banner {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2rem;
+            background-image: url(http://wx3.sinaimg.cn/mw690/005Pbvbogy1g283w8eh6aj30af028wek.jpg);
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .content {
+            position: absolute;
+            top: 1.79rem;
+            z-index: 1;
+            border-radius: 10px;
+            background: #FFF;
+        }
+
+        .searchBar {
+            display: flex;
+            justify-content: flex-start;
+            padding: 15px 10px 15px 15px;
+            border-bottom: 1px #E9E9E9 solid;
+        }
+
+        .search {
+            padding-left: 10px;
+            border: #b8b8b8 1px solid;
+            border-radius: 4px;
+            background: #fff;
+            outline: none;
+            width: 7rem;
+            height: 0.8rem;
+            -webkit-appearance: none;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: 0;
+        }
+
+        .searchButton {
+            margin: 0 0 0 9px;
+            border-radius: 4px;
+            background: #2EA4FF;
+            color: #fff;
+            font-size: 15px;
+            width: 1.6rem;
+            height: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filterHeader {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px #E9E9E9 solid;
+            height: 1.1rem;
+        }
+
+        .gradeSelection,
+        .subjectSelection {
+            width: 5rem;
+            padding: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .gradeFilter,
+        .subjectFilter {
+            height: 1.1rem;
+            margin: 0 15px;
+            border-bottom: 1px #E9E9E9 solid;
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .gradeSort,
+        .subjectSort {
+            display: none;
+        }
+
+        .active {
+            color: #2EA4FF;
+        }
+
+        .open {
+            display: block;
+            position: fixed;
+            background: #fff;
+            width: 100%
+        }
+
+        .arrowImg1,
+        .arrowImg2,
+        .arrowImg3,
+        .arrowImg4 {
+            margin: auto 0 auto 11px;
+            width: 14px;
+            height: 8px;
+        }
+
+        .arrowImg2,
+        .arrowImg4 {
+            display: none;
+        }
+
+        .pageMask {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        #loading.active {
+            position: fixed;
+            background-color: #fff;
+            width: 10rem;
+            height: 18rem;
+            z-index: 4;
+        }
+
+        #loading.finished {
+            display: none;
+        }
+
+        .loading {
+            -webkit-transform: rotate(360deg);
+            animation: rotation 1.5s linear infinite;
+            -moz-animation: rotation 1.5s linear infinite;
+            -webkit-animation: rotation 1.5s linear infinite;
+            -o-animation: rotation 1.5s linear infinite;
+            display: inline-block;
+            position: absolute;
+            left: 4.5rem;
+            top: 4.5rem;
+        }
+
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <!-- <div class="mask"></div> -->
+    </div>
+
+    <div class="content">
+        <div class="searchBar">
+            <input type="text" class="search" placeholder="请输入课程名称">
+            <div class="searchButton">搜索</div>
+        </div>
+        <div class="filterHeader">
+            <div class="gradeSelection">
+                <div>年级</div>
+                <img class="arrowImg1" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2bc5v1lqbj300r00f3y9.jpg">
+                <img class="arrowImg2" src="http://wx1.sinaimg.cn/mw690/005Pbvbogy1g2bc61vc91j300r00f741.jpg">
+            </div>
+            <div class="subjectSelection">
+                <div>学科</div>
+                <img class="arrowImg3" src="http://wx3.sinaimg.cn/mw690/005Pbvbogy1g2bc5v1lqbj300r00f3y9.jpg">
+                <img class="arrowImg4" src="http://wx1.sinaimg.cn/mw690/005Pbvbogy1g2bc61vc91j300r00f741.jpg">
+            </div>
+        </div>
+        <section class="gradeSort">
+            <ul>
+                <li class="gradeFilter">一年级</li>
+                <li class="gradeFilter">二年级</li>
+                <li class="gradeFilter">三年级</li>
+                <li class="gradeFilter">四年级</li>
+                <li class="gradeFilter">五年级</li>
+                <li class="gradeFilter">六年级</li>
+            </ul>
+        </section>
+        <section class="subjectSort">
+            <ul>
+                <li class="subjectFilter">语文</li>
+                <li class="subjectFilter">数学</li>
+                <li class="subjectFilter">英语</li>
+            </ul>
+        </section>
+        <div id="loading" class="active" >
+            <img class="loading" style="width:1rem;height: 1rem;"
+                src="http://wx4.sinaimg.cn/mw690/005Pbvbogy1g2cum4oao6j305k05kweh.jpg" alt="">
+        </div>
+    </div>
+
+
+</body>
+<script>
+    $('.gradeSelection').click(function () {
+        $(".arrowImg1").toggle()
+        $(".arrowImg2").toggle()
+        $(".arrowImg3").css('display', 'block')
+        $(".arrowImg4").css('display', 'none')
+        $(".gradeSelection").toggleClass("active");
+        $(".gradeSort").toggleClass("open");
+        if ($(this).hasClass('active')) {
+            $('.subjectSelection').removeClass('active')
+            $(".subjectSort").removeClass("open");
+            $('.page').addClass('pageMask')
+            $('html,body').addClass('ovfHiden');
+        } else {
+            $('.subjectSelection').removeClass('active')
+            $(".subjectSort").removeClass("open");
+            $('.page').removeClass('pageMask')
+            $('html,body').removeClass('ovfHiden');
+        }
+    })
+    $('.subjectSelection').click(function () {
+        $(".arrowImg3").toggle()
+        $(".arrowImg4").toggle()
+        $(".arrowImg1").css('display', 'block')
+        $(".arrowImg2").css('display', 'none')
+        $(".subjectSelection").toggleClass("active");
+        $(".subjectSort").toggleClass("open");
+        if ($(this).hasClass('active')) {
+            $('.gradeSelection').removeClass('active')
+            $(".gradeSort").removeClass("open");
+            $('.page').addClass('pageMask')
+            $('html,body').addClass('ovfHiden');
+        } else {
+            $(".gradeSort").removeClass("open");
+            $('.gradeSelection').removeClass('active')
+            $('.page').removeClass('pageMask')
+            $('html,body').removeClass('ovfHiden');
+        }
+    })
+    $('.page').click(function () {
+        if ($(this).hasClass('pageMask')) {
+            $(".arrowImg1").css('display', 'block')
+            $(".arrowImg2").css('display', 'none')
+            $(".arrowImg3").css('display', 'block')
+            $(".arrowImg4").css('display', 'none')
+            $('.page').removeClass('pageMask')
+            $('html,body').removeClass('ovfHiden')
+            $(".subjectSort").removeClass("open");
+            $('.gradeSelection').removeClass('active')
+            $(".gradeSort").removeClass("open");
+            $('.subjectSelection').removeClass('active')
+        }
+    });
+
+    ! function () {
+        setTimeout(function () {
+            loading.className = "finished"
+            $('#about').removeClass("offset")
+            $('#topNavBar').removeClass("offset")
+        }, 100000000000)
+    }.call()
+</script>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimun-scale=1.0">
+        content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ant-caiBao-details</title>
     <script>
@@ -23,6 +23,7 @@
 
         video {
             width: 100%;
+            height: 5.6rem;
         }
 
         .title {
@@ -31,6 +32,11 @@
             line-height: 25px;
             font-weight: bold;
             margin: 8px 15px 5px 15px;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .videoInfo {
@@ -48,17 +54,20 @@
             margin: 12px 15px 0 15px;
             border-bottom: #CFD6E6 solid 1px;
             padding-bottom: 15px;
+            display: flex;
+            align-items: center;
         }
 
         .authorImg {
             width: 30px;
             height: 30px;
+            border-radius: 50%;
         }
 
         .author {
             color: #333333;
             font-size: 16px;
-            margin-right: 15px;
+            margin: 0 15px;
         }
 
         .subject {
@@ -78,6 +87,7 @@
             width: 120px;
             height: 75px;
             margin: 5px 15px 5px 15px;
+            border-radius: 10px;
         }
 
         .recommendInfo {
@@ -88,31 +98,34 @@
 
         .recommendtitle {
             overflow: hidden;
-            text-overflow: ellipsis; 
-            white-space: nowrap; 
-            width: 205px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 5rem;
             color: #333333;
             font-size: 16px;
         }
-        .recommendDetails{
+
+        .recommendDetails {
             margin-right: 0 15px 0 0;
         }
-        .other{
+
+        .other {
             font-size: 14px;
             line-height: 25px;
             color: #A3B1CC;
             margin-top: 10px;
         }
     </style>
+
 </head>
 
 <body>
     <main>
         <div class="videoWrap">
-            <video src="./鸟叔.mp4" controls></video>
+            <video src="./鸟叔.mp4" controls style="object-fit:contain"></video>
         </div>
         <div class="videoDetails">
-            <div class="title">教学视频教学视频教学视频教学视频教学视频</div>
+            <div class="title">教学视频教学视频教学视频教学视频教学视频教学视频教学视频教学视频教学视频</div>
             <div class="videoInfo">
                 <span class="pageviews">浏览量：888</span>
                 <span class="publishTime">发布时间：2019年4月19日</span>
