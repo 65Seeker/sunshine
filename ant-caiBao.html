@@ -370,7 +370,7 @@
 
 
 </body>
-<script src="//qidian.gtimg.com/yuewen/v1/js/zepto.min.js"></script>
+<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
 <script>
     $('.gradeSelection').click(function () {
         $(".arrowImg1").toggle()
@@ -378,15 +378,15 @@
         $(".arrowImg3").css('display', 'block')
         $(".arrowImg4").css('display', 'none')
         $(".gradeSelection").toggleClass("active");
-        $(".gradeSort").toggleClass("open");
+        // $(".gradeSort").toggleClass("open");
         if ($(this).hasClass('active')) {
             $('.subjectSelection').removeClass('active')
-            $(".subjectSort").removeClass("open");
+            // $(".subjectSort").removeClass("open");
             $('.page').addClass('pageMask')
             // $('html,body').addClass('ovfHiden');
         } else {
             $('.subjectSelection').removeClass('active')
-            $(".subjectSort").removeClass("open");
+            // $(".subjectSort").removeClass("open");
             $('.page').removeClass('pageMask')
             // $('html,body').removeClass('ovfHiden');
         }
@@ -397,14 +397,14 @@
         $(".arrowImg1").css('display', 'block')
         $(".arrowImg2").css('display', 'none')
         $(".subjectSelection").toggleClass("active");
-        $(".subjectSort").toggleClass("open");
+        // $(".subjectSort").toggleClass("open");
         if ($(this).hasClass('active')) {
             $('.gradeSelection').removeClass('active')
-            $(".gradeSort").removeClass("open");
+            // $(".gradeSort").removeClass("open");
             $('.page').addClass('pageMask')
             // $('html,body').addClass('ovfHiden');
         } else {
-            $(".gradeSort").removeClass("open");
+            // $(".gradeSort").removeClass("open");
             $('.gradeSelection').removeClass('active')
             $('.page').removeClass('pageMask')
             // $('html,body').removeClass('ovfHiden');
@@ -418,7 +418,7 @@
             $(".arrowImg4").css('display', 'none')
             $('.page').removeClass('pageMask')
             $('html,body').removeClass('ovfHiden')
-            $(".subjectSort").removeClass("open");
+            // $(".subjectSort").removeClass("open");
             $('.gradeSelection').removeClass('active')
             $(".gradeSort").removeClass("open");
             $('.subjectSelection').removeClass('active')
@@ -426,16 +426,17 @@
     })
 
     var elButton = $('#button'),
-        elButtonWith = $('#buttonWith');
+        elButtonWith = $('.subjectSelection');
     var elAside = $('.gradeSort');
     elButton.on('click', function () {
         elAside.addClass('open');
         $('html').addClass('noscroll');
     });
     elButtonWith.on('click', function () {
+        console.log(1)
         elAside.addClass('open');
         $.smartScroll(elAside, '.scrollable');
-        elButton.html(elButton.html().replace('没有', '已经'));
+
         $('html').addClass('noscroll');
     });
 
